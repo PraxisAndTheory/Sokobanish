@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://bajlbhgyd5yyw"]
+
+[ext_resource type="Script" path="res://victory_ui/victory_ui.gd" id="1_4c75a"]
+[ext_resource type="Texture2D" uid="uid://dd1nwb8a4hytw" path="res://assets/Purple.png" id="1_kmv16"]
+[ext_resource type="Texture2D" uid="uid://e3u07kist6et" path="res://assets/panel_beigeLight.png" id="2_y6cxc"]
+[ext_resource type="LabelSettings" uid="uid://cwj8pi8x6ois8" path="res://assets/LG_Title_96.tres" id="3_m37tp"]
+[ext_resource type="FontFile" uid="uid://gcraohidbbpi" path="res://assets/LuckiestGuy-Regular.ttf" id="4_wkp0f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hj0ps"]
+font = ExtResource("4_wkp0f")
+font_size = 48
+font_color = Color(0.447059, 1, 1, 1)
+outline_size = 18
+outline_color = Color(0.368627, 0.380392, 0.85098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g0ghi"]
+font = ExtResource("4_wkp0f")
+font_size = 48
+font_color = Color(0.980392, 0.584314, 0.470588, 1)
+outline_size = 18
+outline_color = Color(0.368627, 0.380392, 0.85098, 1)
+
+[node name="VictoryUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4c75a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kmv16")
+stretch_mode = 1
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MC"]
+layout_mode = 2
+texture = ExtResource("2_y6cxc")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MC/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LEVEL COMPLETE"
+label_settings = ExtResource("3_m37tp")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MC/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MovesLabel" type="Label" parent="MC/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "XXX Moves taken"
+label_settings = SubResource("LabelSettings_hj0ps")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MC/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecordLabel" type="Label" parent="MC/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "A new record!"
+label_settings = SubResource("LabelSettings_g0ghi")
+horizontal_alignment = 1
+
+[node name="Spacer3" type="Control" parent="MC/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
